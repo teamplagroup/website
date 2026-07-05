@@ -8,6 +8,7 @@ Marketing site for **The Project Leadership Advisory Group**
 - Design system: adapted from Refero's INVERSA style — INVERSA typography and
   spacing are kept 1:1; only the color palette is swapped to match the PLA
   logo (navy + gold).
+- Repo: [teamplagroup/website](https://github.com/teamplagroup/website)
 
 ---
 
@@ -36,14 +37,12 @@ Deployment is automated by `.github/workflows/deploy.yml` using the official
 `withastro/action`. Every push to `main` builds the site and publishes it to
 GitHub Pages.
 
-**One-time setup after pushing to a GitHub remote:**
+**One-time setup after the first push:**
 
 1. Repo → **Settings → Pages → Build and deployment → Source**:
    `GitHub Actions` (required — do not select "Deploy from a branch").
 2. First push to `main` (or manually trigger the workflow) will run the
-   `Deploy to GitHub Pages` action and expose the site at
-   `https://<gh-user>.github.io/<repo>/` — the workflow will then publish it
-   at the custom domain below.
+   `Deploy to GitHub Pages` action.
 
 ### Custom domain / DNS
 
@@ -52,14 +51,12 @@ automatically.
 
 At Cloudflare (DNS for `usetheplagroup.com`):
 
-- **CNAME** `usetheplagroup.com` → `<gh-user>.github.io`
+- **CNAME** `@` (or `usetheplagroup.com`) → `teamplagroup.github.io`
 - Proxy status: **DNS only** (grey cloud). Cloudflare's orange-cloud proxy
   breaks GitHub Pages' automatic HTTPS provisioning; leave it off, at least
   until Pages has issued a Let's Encrypt cert and the "Enforce HTTPS"
   checkbox in Settings → Pages is ticked.
-- Apex domain? Use Cloudflare's `CNAME flattening` on the root, or point
-  four `A` records at GitHub's Pages IPs (`185.199.108.153`,
-  `185.199.109.153`, `185.199.110.153`, `185.199.111.153`).
+- Cert provisioning typically takes ~24h after the CNAME propagates.
 
 ---
 
@@ -74,25 +71,38 @@ At Cloudflare (DNS for `usetheplagroup.com`):
 | `--pla-iron`       | `#404040`  | Hairlines                             |
 | `--pla-ash`        | `#84837b`  | Muted text                            |
 
-Type: **NB International Pro** primary, **JetBrains Mono** for captions and
-UI. NB is a paid Neubau font — the site currently falls back to Söhne /
-Inter / system-ui until it's licensed and self-hosted (see TODOs below).
+## Fonts
+
+**Söhne** (Klim Type Foundry, licensed) is the primary face. Drop the
+licensed woff2 files into `public/fonts/`:
+
+- `public/fonts/soehne-buch.woff2` (weight 400)
+- `public/fonts/soehne-kraftig.woff2` (weight 600)
+
+Falls back to **Inter / system-ui** until those files are present. See
+`public/fonts/README.md` for details.
+
+Mono UI uses **JetBrains Mono**, self-hosted via `@fontsource/jetbrains-mono`.
+
+---
+
+## Contact form
+
+`src/pages/contact.astro` posts to a Formspree placeholder endpoint
+(`https://formspree.io/f/REPLACE_ME`). Swap the `action=` attribute for a
+real endpoint before launch. A `mailto:` fallback is shown next to the
+form in either case.
 
 ---
 
 ## TODOs
 
-- [ ] License **NB International Pro** from Neubau, self-host the woff2
-      files under `src/assets/fonts/`, and register them via `@font-face` in
-      `global.css`. Currently the primary stack falls back to Söhne / Inter
-      / system-ui.
-- [ ] Replace the placeholder Unsplash hero and full-bleed band images
-      (`src/components/Hero.astro`, `src/pages/index.astro`) with licensed,
+- [ ] License **Söhne** from Klim Type Foundry and drop the woff2 files into
+      `public/fonts/`.
+- [ ] Replace placeholder Unsplash imagery in `src/components/Hero.astro`,
+      `src/pages/index.astro`, and `src/pages/about.astro` with licensed,
       self-hosted photography under `public/images/`.
-- [ ] Finalize copy — the current landing text is a rough draft; Juan will
-      rewrite for tone.
-- [ ] Confirm the GitHub org / repo (likely under `crushcitycoder` — the
-      `teamplagroup` org does not exist yet at scaffold time).
-- [ ] Set up a form provider (Formspree, Basin, or a Cloudflare Worker) for
-      the contact CTA if a `mailto:` link isn't sufficient.
-- [ ] Add real favicon set (`.ico`, apple-touch-icon, OG image).
+- [ ] Replace the Formspree placeholder endpoint in
+      `src/pages/contact.astro`.
+- [ ] Add a real favicon set (`.ico`, apple-touch-icon, OG image).
+- [ ] Optional: add an `/insights` route once there is content.

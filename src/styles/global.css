@@ -8,6 +8,25 @@
 @import "@fontsource/jetbrains-mono/400.css";
 @import "@fontsource/jetbrains-mono/700.css";
 
+/* Söhne (Klim Type Foundry, licensed).
+   Files are NOT committed to this repo. Drop woff2 files into public/fonts/
+   to activate — until then the stack falls back to Inter / system-ui. */
+@font-face {
+  font-family: "Söhne";
+  src: url("/fonts/soehne-buch.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Söhne";
+  src: url("/fonts/soehne-kraftig.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Palette */
   --pla-navy: #1c2b4a;
@@ -17,12 +36,11 @@
   --pla-iron: #404040;
   --pla-ash: #84837b;
 
-  /* Typography stacks
-     TODO: license NB International Pro and self-host; then prepend it here. */
-  --font-primary: "NB International Pro", "Söhne", "Inter",
-    system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo,
-    Monaco, Consolas, monospace;
+  /* Typography stacks */
+  --font-primary: "Söhne", "Söhne Buch", "Sohne", Inter, system-ui,
+    -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, monospace;
 
   /* Type scale */
   --fs-display: 72px;
@@ -173,10 +191,35 @@ video {
   gap: 48px;
 }
 
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+}
+
+@media (max-width: 1000px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+}
+
 @media (max-width: 900px) {
-  .grid-3 {
+  .grid-3,
+  .grid-2 {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  .grid-4 {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 
   :root {
@@ -184,4 +227,11 @@ video {
     --fs-heading: 36px;
     --fs-subheading: 24px;
   }
+}
+
+/* --- Focus ring ------------------------------------------------------------ */
+
+:focus-visible {
+  outline: 2px solid var(--pla-gold);
+  outline-offset: 2px;
 }

@@ -6,30 +6,56 @@ interface Props {
   eyebrow?: string;
   headline: string;
   subhead: string;
-  ctaLabel: string;
-  ctaHref: string;
+  primaryCtaLabel?: string;
+  primaryCtaHref?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+  image?: string;
+  compact?: boolean;
 }
 
-const { eyebrow, headline, subhead, ctaLabel, ctaHref } = Astro.props;
-
-// TODO: self-host a licensed aerial/satellite image and replace this URL.
-const heroImage =
-  "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=2400&q=80";
+const {
+  eyebrow,
+  headline,
+  subhead,
+  primaryCtaLabel,
+  primaryCtaHref,
+  secondaryCtaLabel,
+  secondaryCtaHref,
+  // TODO: license & self-host a photograph of a major capital-project site or
+  // executive setting; the following Unsplash frame is a placeholder aerial
+  // that reads as premium infrastructure without oilfield tropes.
+  image = "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=2400&q=80",
+  compact = false,
+} = Astro.props;
 ---
 
 <header
-  class="hero"
-  style={`background-image: linear-gradient(180deg, rgba(28,43,74,0.55) 0%, rgba(28,43,74,0.85) 100%), url(${heroImage});`}
+  class:list={["hero", compact && "hero--compact"]}
+  style={`background-image: linear-gradient(180deg, rgba(28,43,74,0.55) 0%, rgba(28,43,74,0.90) 100%), url(${image});`}
 >
-  <Nav />
+  <Nav variant="over-hero" />
 
   <div class="hero__content container">
     {eyebrow && <p class="caption hero__eyebrow">{eyebrow}</p>}
     <h1 class="hero__headline">{headline}</h1>
     <p class="hero__subhead">{subhead}</p>
-    <div class="hero__cta">
-      <Button href={ctaHref} variant="gold">{ctaLabel}</Button>
-    </div>
+    {
+      (primaryCtaLabel || secondaryCtaLabel) && (
+        <div class="hero__cta">
+          {primaryCtaLabel && primaryCtaHref && (
+            <Button href={primaryCtaHref} variant="gold">
+              {primaryCtaLabel}
+            </Button>
+          )}
+          {secondaryCtaLabel && secondaryCtaHref && (
+            <Button href={secondaryCtaHref} variant="ghost">
+              {secondaryCtaLabel}
+            </Button>
+          )}
+        </div>
+      )
+    }
   </div>
 </header>
 
@@ -49,6 +75,11 @@ const heroImage =
     align-items: flex-end;
     border: 0;
     border-radius: 0;
+  }
+
+  .hero--compact {
+    min-height: min(64vh, 560px);
+    padding-bottom: 64px;
   }
 
   .hero__content {
@@ -73,16 +104,25 @@ const heroImage =
     max-width: 18ch;
   }
 
+  .hero--compact .hero__headline {
+    font-size: 58px;
+    line-height: 1.06;
+    max-width: 22ch;
+  }
+
   .hero__subhead {
     font-size: var(--fs-subheading);
     line-height: var(--lh-subheading);
     letter-spacing: -0.03em;
     color: var(--pla-vellum);
-    max-width: 42ch;
+    max-width: 46ch;
   }
 
   .hero__cta {
     margin-top: 16px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
   }
 
   @media (max-width: 900px) {
@@ -90,6 +130,14 @@ const heroImage =
       min-height: 620px;
       padding-top: 120px;
       padding-bottom: 56px;
+    }
+
+    .hero--compact {
+      min-height: 480px;
+    }
+
+    .hero--compact .hero__headline {
+      font-size: 40px;
     }
   }
 </style>

@@ -1,0 +1,277 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Footer from "../components/Footer.astro";
+import Button from "../components/Button.astro";
+
+const credibility = [
+  "35+ years of global project leadership experience",
+  "Full lifecycle EPC execution experience",
+  "Leadership on major energy and infrastructure programs",
+  "Experience across the Americas, Europe, the Middle East, and Asia",
+  "Project leadership across pipelines, subsea, FPSO, gas, offshore, and infrastructure projects",
+  "Expertise in contracts, claims, change management, risk, safety, schedule, cost, and project governance",
+  "Senior client interface and multidisciplinary team leadership experience",
+  "Commissioning, startup, closeout, and operational handover experience",
+];
+
+// TODO: replace with licensed photograph of Luis or a suitable executive portrait.
+const bandImage =
+  "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=2400&q=80";
+---
+
+<BaseLayout
+  title="About | The PLA Group"
+  description="The PLA Group was founded to bring seasoned executive project leadership to organizations delivering complex, high-value energy and infrastructure projects."
+>
+  <Hero
+    eyebrow="About"
+    headline="Built on Decades of Global Project Leadership"
+    subhead="The PLA Group was founded to bring seasoned executive project leadership to organizations delivering complex, high-value energy and infrastructure projects."
+    compact
+  />
+
+  <!-- About the firm --------------------------------------------------- -->
+  <section class="section" id="firm">
+    <div class="container">
+      <p class="caption section__eyebrow">The firm</p>
+      <h2 class="section__title">About The PLA Group</h2>
+      <div class="prose">
+        <p>
+          The PLA Group is an executive project advisory firm focused on
+          helping owners, operators, EPC contractors, joint ventures, and
+          leadership teams deliver complex capital projects with greater
+          confidence.
+        </p>
+        <p>
+          Our work is grounded in real-world project leadership experience
+          across the full EPC lifecycle: strategy, definition, execution,
+          construction, commissioning, startup, handover, and closeout.
+        </p>
+        <p>
+          We help clients strengthen governance, manage risk, improve
+          execution discipline, and make better decisions at the moments that
+          matter most.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hairline container-hairline" />
+
+  <!-- Founder — short bio ---------------------------------------------- -->
+  <section class="section" id="founder-short">
+    <div class="container founder">
+      <div class="founder__eyebrow">
+        <p class="caption section__eyebrow">Founder</p>
+        <h2 class="section__title">Luis Hernandez</h2>
+      </div>
+
+      <div class="founder__body">
+        <p>
+          Luis Hernandez is a senior EPC and project leadership executive with
+          more than 35 years of global experience delivering large, complex
+          energy and infrastructure programs across the Americas, Europe, the
+          Middle East, and Asia.
+        </p>
+        <p>
+          He has led multidisciplinary teams, managed major project execution,
+          served as a senior client interface, supported full lifecycle EPC
+          delivery, and overseen critical areas including contract
+          administration, change management, commercial strategy, risk
+          mitigation, safety culture, executive reporting, commissioning,
+          startup, and project closeout.
+        </p>
+        <p>
+          Luis brings clients a rare combination of hands-on project delivery
+          experience, executive-level judgment, commercial discipline, and
+          global perspective.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-bleed band -------------------------------------------------- -->
+  <section
+    class="band"
+    aria-hidden="true"
+    style={`background-image: linear-gradient(180deg, rgba(28,43,74,0.45) 0%, rgba(28,43,74,0.75) 100%), url(${bandImage});`}
+  >
+  </section>
+
+  <!-- Founder — long bio ----------------------------------------------- -->
+  <section class="section" id="founder-long">
+    <div class="container">
+      <p class="caption section__eyebrow">Career</p>
+      <h2 class="section__title">A Career Built on Project Delivery</h2>
+
+      <div class="prose">
+        <p>
+          Luis Hernandez founded The PLA Group to help organizations bring
+          experienced leadership and execution discipline to complex capital
+          projects.
+        </p>
+        <p>
+          Over the course of his career, Luis has held senior project
+          leadership roles on major energy and infrastructure projects around
+          the world, including pipeline, subsea, offshore, FPSO, gas, and
+          large-scale development projects. His work has spanned the full
+          project lifecycle from early project appraisal and concept selection
+          through definition, execution, construction, commissioning, startup,
+          operations handover, and closeout.
+        </p>
+        <p>
+          Luis has led and supported major project teams across multiple
+          regions, including the United States, Canada, Mexico, Trinidad and
+          Tobago, Algeria, Norway, India, South Korea, and other global
+          project environments.
+        </p>
+        <p>
+          His expertise includes program and portfolio leadership, EPC
+          execution, contract administration, claims and change management,
+          full P&amp;L accountability, commercial strategy, schedule
+          development, progress monitoring, procurement and subcontract
+          strategy, risk mitigation, HSSE leadership, executive reporting,
+          team development, and project recovery.
+        </p>
+        <p>
+          Through The PLA Group, Luis helps clients make better decisions,
+          strengthen project execution, and bring experienced leadership to
+          the projects where delivery matters most.
+        </p>
+      </div>
+
+      <!-- Credibility bullets -->
+      <div class="credibility">
+        <p class="caption credibility__label">Credentials</p>
+        <ul class="credibility__list">
+          {credibility.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hairline container-hairline" />
+
+  <!-- CTA -------------------------------------------------------------- -->
+  <section class="section">
+    <div class="container">
+      <p class="caption section__eyebrow">Get in touch</p>
+      <h2 class="section__title">
+        Bring Executive-Level Leadership to Your Project
+      </h2>
+      <p class="cta-copy">
+        Tell us about the project. We will respond within one business day.
+      </p>
+      <Button href="/contact" variant="gold">Start the Conversation</Button>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .section__eyebrow {
+    color: var(--pla-gold);
+    margin-bottom: 20px;
+  }
+
+  .section__title {
+    font-size: var(--fs-heading);
+    line-height: var(--lh-heading);
+    letter-spacing: -0.03em;
+    max-width: 26ch;
+    margin-bottom: 40px;
+  }
+
+  .container-hairline {
+    width: min(100% - 48px, var(--container-max));
+    margin-inline: auto;
+  }
+
+  .prose {
+    max-width: 62ch;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .founder {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .founder__eyebrow .section__title {
+    margin-bottom: 0;
+  }
+
+  .founder__body {
+    max-width: 62ch;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .band {
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    height: min(48vh, 440px);
+    background-color: var(--pla-navy);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .credibility {
+    margin-top: 56px;
+  }
+
+  .credibility__label {
+    margin-bottom: 20px;
+  }
+
+  .credibility__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 40px;
+    max-width: 100%;
+  }
+
+  .credibility__list li {
+    position: relative;
+    padding-left: 20px;
+    font-size: var(--fs-body);
+    line-height: 1.5;
+  }
+
+  .credibility__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 10px;
+    height: 1px;
+    background: var(--pla-gold);
+  }
+
+  .cta-copy {
+    max-width: 62ch;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 900px) {
+    .founder {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .credibility__list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

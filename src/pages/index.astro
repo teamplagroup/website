@@ -4,97 +4,231 @@ import Hero from "../components/Hero.astro";
 import Footer from "../components/Footer.astro";
 import Button from "../components/Button.astro";
 
-// TODO: source a licensed aerial/satellite photograph and self-host it.
+// TODO: source and self-host licensed photography for the full-bleed band.
 const bandImage =
-  "https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?auto=format&fit=crop&w=2400&q=80";
+  "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?auto=format&fit=crop&w=2400&q=80";
 
 const services = [
   {
-    caption: "01 — Advisory",
-    title: "Board-level counsel.",
-    body: "Independent advisory to owners, executives, and boards on capital program strategy, delivery model selection, and organizational readiness.",
+    caption: "01",
+    title: "Executive Project Advisory",
+    body: "Senior-level guidance for complex project decisions, governance challenges, stakeholder alignment, and delivery risk.",
   },
   {
-    caption: "02 — Execution Oversight",
-    title: "Project office in place.",
-    body: "Embedded oversight of the delivery team — governance, controls, reporting, and issue resolution — through the lifetime of the program.",
+    caption: "02",
+    title: "EPC Strategy & Execution",
+    body: "Practical support for execution planning, contracting strategy, procurement, interface management, and project controls alignment.",
   },
   {
-    caption: "03 — Delivery Assurance",
-    title: "Independent verification.",
-    body: "Structured assurance reviews at the gates that matter: readiness, cost, schedule, risk, and closeout — with clear, actionable findings.",
+    caption: "03",
+    title: "Project Recovery",
+    body: "Experienced leadership support for projects facing cost, schedule, contractual, commercial, or execution challenges.",
+  },
+  {
+    caption: "04",
+    title: "Contract & Change Management",
+    body: "Commercial and contractual advisory support for claims, change management, owner–contractor alignment, and executive issue framing.",
+  },
+  {
+    caption: "05",
+    title: "Commissioning & Startup Readiness",
+    body: "Support for construction completion, commissioning, startup, handover, closeout, and early operations readiness.",
+  },
+];
+
+const experienceBar = [
+  "35+ Years Global Experience",
+  "Full Lifecycle EPC Execution",
+  "Major Energy & Infrastructure Programs",
+  "Project Leadership Through Startup & Closeout",
+];
+
+const pillars = [
+  {
+    title: "Executive Judgment",
+    body: "Senior-level perspective on high-stakes project decisions, governance challenges, and stakeholder alignment.",
+  },
+  {
+    title: "Delivery Discipline",
+    body: "Focus on the fundamentals that determine project success: scope, schedule, cost, risk, quality, safety, and accountability.",
+  },
+  {
+    title: "Commercial Awareness",
+    body: "Understanding of the contractual, financial, and commercial realities that shape project outcomes.",
+  },
+  {
+    title: "Global EPC Experience",
+    body: "Depth across international project environments, multidisciplinary teams, and complex stakeholder structures.",
   },
 ];
 ---
 
-<BaseLayout title="The PLA Group — Project leadership, engineered.">
+<BaseLayout
+  title="The PLA Group | Executive Project Leadership Advisory"
+  description="The PLA Group provides executive project leadership and advisory services for complex energy, infrastructure, and capital projects worldwide."
+>
   <Hero
-    eyebrow="THE PROJECT LEADERSHIP ADVISORY GROUP"
-    headline="Project leadership, engineered."
-    subhead="Advisory, execution oversight, and delivery assurance for complex capital programs."
-    ctaLabel="Request a conversation"
-    ctaHref="mailto:hello@usetheplagroup.com"
+    eyebrow="The Project Leadership Advisory Group"
+    headline="Executive Project Leadership for Complex Capital Projects"
+    subhead="The PLA Group provides strategic advisory and leadership support for owners, operators, EPC contractors, and project teams delivering high-value energy and infrastructure projects worldwide."
+    primaryCtaLabel="Schedule a Consultation"
+    primaryCtaHref="/contact"
+    secondaryCtaLabel="Explore Our Services"
+    secondaryCtaHref="/services"
   />
 
-  <!-- Services --------------------------------------------------------- -->
-  <section class="section" id="services">
+  <!-- Experience Bar --------------------------------------------------- -->
+  <section class="section experience" aria-label="Experience">
     <div class="container">
-      <p class="caption section__eyebrow">What we do</p>
-      <h2 class="section__title">Three practices. One discipline.</h2>
-
-      <div class="grid-3 services">
+      <ul class="experience__list">
         {
-          services.map((s) => (
-            <article class="service">
-              <p class="caption service__caption">{s.caption}</p>
-              <h3 class="service__title">{s.title}</h3>
-              <p class="service__body">{s.body}</p>
-            </article>
+          experienceBar.map((item) => (
+            <li class="experience__item">
+              <span class="experience__dot" aria-hidden="true">●</span>
+              <span class="experience__text">{item}</span>
+            </li>
           ))
         }
-      </div>
+      </ul>
     </div>
   </section>
 
   <hr class="hairline container-hairline" />
 
-  <!-- Approach --------------------------------------------------------- -->
-  <section class="section" id="approach">
-    <div class="container approach">
-      <p class="caption section__eyebrow">Approach</p>
-      <h2 class="section__title">Rigor without theater.</h2>
-      <div class="approach__body">
+  <!-- Stakes ----------------------------------------------------------- -->
+  <section class="section" id="stakes">
+    <div class="container">
+      <p class="caption section__eyebrow">What we do</p>
+      <h2 class="section__title">Project Leadership When the Stakes Are High</h2>
+      <div class="stakes__body">
         <p>
-          Complex capital programs fail for predictable reasons — unclear
-          accountability, unrealistic baselines, and governance that arrives
-          late. We work at the intersection of the owner, the delivery team,
-          and the assurance function, so that the questions that decide the
-          outcome are answered in time to matter.
+          Major capital projects carry major consequences. Cost, schedule,
+          safety, quality, contracts, stakeholders, and execution decisions
+          all have to move together.
         </p>
         <p>
-          Our engagements are small, senior, and time-bounded. We take on the
-          problem, not the retainer. The work product is decisions made and
-          risks retired, not slides produced.
+          The PLA Group helps leadership teams strengthen project execution,
+          improve governance, manage risk, and make better decisions at
+          critical moments.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Full-bleed band -------------------------------------------------- -->
-  <section class="band" aria-hidden="true" style={`background-image: url(${bandImage});`}></section>
+  <!-- What We Do — 5 cards --------------------------------------------- -->
+  <section class="section" id="what-we-do">
+    <div class="container">
+      <p class="caption section__eyebrow">Practice areas</p>
+      <h2 class="section__title">Five disciplines. One standard.</h2>
 
-  <!-- Contact ---------------------------------------------------------- -->
-  <section class="section" id="contact">
-    <div class="container contact">
-      <p class="caption section__eyebrow">Contact</p>
-      <h2 class="section__title">Start with a conversation.</h2>
-      <p class="contact__body">
-        Tell us about the program. We'll respond within one business day.
-      </p>
-      <div class="contact__cta">
-        <Button href="mailto:hello@usetheplagroup.com" variant="gold">
-          hello@usetheplagroup.com
+      <ul class="cards">
+        {
+          services.map((s) => (
+            <li class="card">
+              <p class="caption card__caption">{s.caption}</p>
+              <h3 class="card__title">{s.title}</h3>
+              <p class="card__body">{s.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="section__foot">
+        <Button href="/services" variant="ghost">
+          See all services
         </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-bleed band -------------------------------------------------- -->
+  <section
+    class="band"
+    aria-hidden="true"
+    style={`background-image: linear-gradient(180deg, rgba(28,43,74,0.35) 0%, rgba(28,43,74,0.65) 100%), url(${bandImage});`}
+  >
+  </section>
+
+  <!-- Why The PLA Group ----------------------------------------------- -->
+  <section class="section" id="why">
+    <div class="container">
+      <p class="caption section__eyebrow">Why The PLA Group</p>
+      <h2 class="section__title">Experience That Goes Beyond Advice</h2>
+      <div class="why__lede">
+        <p>
+          The PLA Group brings decades of real-world project leadership
+          experience across complex EPC environments. We understand the
+          realities of delivering major projects because we have led them.
+        </p>
+        <p>
+          Our work helps clients bring clarity, discipline, and experienced
+          judgment to the projects that matter most.
+        </p>
+      </div>
+
+      <ul class="pillars">
+        {
+          pillars.map((p) => (
+            <li class="pillar">
+              <h3 class="pillar__title">{p.title}</h3>
+              <p class="pillar__body">{p.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <hr class="hairline container-hairline" />
+
+  <!-- Founder --------------------------------------------------------- -->
+  <section class="section" id="founder">
+    <div class="container founder">
+      <div class="founder__eyebrow">
+        <p class="caption section__eyebrow">Founder</p>
+        <h2 class="section__title">Led by Luis Hernandez</h2>
+      </div>
+
+      <div class="founder__body">
+        <p>
+          Luis Hernandez is a senior EPC and project leadership executive with
+          more than 35 years of global experience delivering large, complex
+          energy and infrastructure programs across the Americas, Europe, the
+          Middle East, and Asia.
+        </p>
+        <p>
+          His experience spans full lifecycle EPC execution, contract
+          administration, change management, commercial strategy, risk
+          mitigation, safety leadership, executive reporting, commissioning,
+          startup, and project closeout.
+        </p>
+        <p>
+          Through The PLA Group, Luis helps clients strengthen execution,
+          improve governance, and bring experienced leadership to high-stakes
+          capital projects.
+        </p>
+        <div class="founder__cta">
+          <Button href="/about" variant="ghost">
+            More about Luis
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -------------------------------------------------------- -->
+  <section class="section cta-band">
+    <div class="container cta">
+      <p class="caption section__eyebrow">Get in touch</p>
+      <h2 class="section__title">
+        Bring Executive-Level Leadership to Your Project
+      </h2>
+      <p class="cta__body">
+        If your organization is planning, executing, recovering, or closing
+        out a complex capital project, The PLA Group can help.
+      </p>
+      <div class="cta__actions">
+        <Button href="/contact" variant="gold">Start the Conversation</Button>
       </div>
     </div>
   </section>
@@ -112,32 +246,12 @@ const services = [
     font-size: var(--fs-heading);
     line-height: var(--lh-heading);
     letter-spacing: -0.03em;
-    max-width: 24ch;
+    max-width: 26ch;
     margin-bottom: 56px;
   }
 
-  .services {
-    align-items: start;
-  }
-
-  .service {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .service__caption {
-    color: var(--pla-ash);
-  }
-
-  .service__title {
-    font-size: var(--fs-subheading);
-    line-height: var(--lh-subheading);
-    letter-spacing: -0.03em;
-  }
-
-  .service__body {
-    color: var(--pla-vellum);
+  .section__foot {
+    margin-top: 56px;
   }
 
   .container-hairline {
@@ -145,12 +259,107 @@ const services = [
     margin-inline: auto;
   }
 
-  .approach__body {
+  /* --- Experience bar ------------------------------------------------- */
+
+  .experience {
+    padding-block: 40px;
+  }
+
+  .experience__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 32px;
+  }
+
+  .experience__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--pla-vellum);
+  }
+
+  .experience__dot {
+    color: var(--pla-gold);
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 900px) {
+    .experience__list {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  /* --- Stakes --------------------------------------------------------- */
+
+  .stakes__body {
     max-width: 62ch;
     display: flex;
     flex-direction: column;
     gap: 24px;
   }
+
+  /* --- Cards ---------------------------------------------------------- */
+
+  .cards {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+
+  .cards .card:nth-child(4),
+  .cards .card:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 32px 0 0 0;
+    border-top: 1px solid var(--pla-iron);
+  }
+
+  .card__caption {
+    color: var(--pla-gold);
+  }
+
+  .card__title {
+    font-size: var(--fs-subheading);
+    line-height: var(--lh-subheading);
+    letter-spacing: -0.03em;
+    max-width: 20ch;
+  }
+
+  .card__body {
+    color: var(--pla-vellum);
+  }
+
+  @media (max-width: 1000px) {
+    .cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 700px) {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* --- Band ----------------------------------------------------------- */
 
   .band {
     width: 100vw;
@@ -164,8 +373,96 @@ const services = [
     border-radius: 0;
   }
 
-  .contact__body {
-    max-width: 48ch;
+  /* --- Why ------------------------------------------------------------ */
+
+  .why__lede {
+    max-width: 62ch;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+
+  .pillars {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 40px;
+  }
+
+  .pillar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 24px;
+    border-top: 1px solid var(--pla-iron);
+  }
+
+  .pillar__title {
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+  }
+
+  @media (max-width: 1000px) {
+    .pillars {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 700px) {
+    .pillars {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* --- Founder -------------------------------------------------------- */
+
+  .founder {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .founder__eyebrow .section__title {
+    margin-bottom: 0;
+  }
+
+  .founder__body {
+    max-width: 62ch;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .founder__cta {
+    margin-top: 16px;
+  }
+
+  @media (max-width: 900px) {
+    .founder {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  /* --- Final CTA ------------------------------------------------------ */
+
+  .cta-band {
+    background: transparent;
+  }
+
+  .cta__body {
+    max-width: 62ch;
     margin-bottom: 32px;
+  }
+
+  .cta__actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
   }
 </style>

@@ -5,29 +5,36 @@ const year = 2026;
 <footer class="footer">
   <div class="container footer__inner">
     <div class="footer__brand">
-      <p class="footer__wordmark">the PLA group</p>
+      <p class="footer__wordmark">
+        <span class="footer__wordmark-em">the</span> PLA
+        <span class="footer__wordmark-em">group</span>
+      </p>
+      <p class="footer__tagline">Leadership That Delivers.</p>
       <p class="footer__legal">
         © {year} The Project Leadership Advisory Group.
       </p>
     </div>
 
     <div class="footer__col">
-      <p class="caption footer__label">Practice</p>
+      <p class="caption footer__label">Navigate</p>
       <ul>
-        <li><a href="#services">Advisory</a></li>
-        <li><a href="#services">Execution Oversight</a></li>
-        <li><a href="#services">Delivery Assurance</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/industries">Industries</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
     </div>
 
     <div class="footer__col">
-      <p class="caption footer__label">Company</p>
+      <p class="caption footer__label">Get in touch</p>
       <ul>
-        <li><a href="#approach">Approach</a></li>
-        <li><a href="#contact">Contact</a></li>
         <li>
-          <a href="mailto:hello@usetheplagroup.com">hello@usetheplagroup.com</a>
+          <a href="mailto:hello@usetheplagroup.com">
+            hello@usetheplagroup.com
+          </a>
         </li>
+        <li><a href="/contact">Start the conversation</a></li>
       </ul>
     </div>
   </div>
@@ -40,7 +47,7 @@ const year = 2026;
     background: var(--pla-navy);
     color: var(--pla-vellum);
     border-top: 1px solid var(--pla-iron);
-    padding-block: 56px;
+    padding-block: 72px;
     font-family: var(--font-mono);
     font-size: 13px;
     line-height: 1.6;
@@ -62,19 +69,35 @@ const year = 2026;
 
   .footer__wordmark {
     font-family: var(--font-primary);
-    font-size: 20px;
+    font-size: 22px;
     letter-spacing: -0.03em;
     color: var(--pla-vellum);
+    margin: 0;
+  }
+
+  .footer__wordmark-em {
+    font-style: italic;
+    color: var(--pla-ash);
+  }
+
+  .footer__tagline {
+    font-family: var(--font-primary);
+    font-size: 22px;
+    letter-spacing: -0.03em;
+    color: var(--pla-gold);
+    margin: 0;
   }
 
   .footer__legal {
     color: var(--pla-ash);
     font-family: var(--font-mono);
     font-size: 13px;
+    margin: 0;
+    margin-top: 16px;
   }
 
   .footer__label {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   .footer__col ul {
@@ -83,7 +106,7 @@ const year = 2026;
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
   }
 
   .footer__col a {
@@ -99,7 +122,7 @@ const year = 2026;
   @media (max-width: 900px) {
     .footer__inner {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 40px;
     }
   }
 </style>

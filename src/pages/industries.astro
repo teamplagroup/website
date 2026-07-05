@@ -1,0 +1,152 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Footer from "../components/Footer.astro";
+import Button from "../components/Button.astro";
+
+const projectTypes = [
+  {
+    number: "01",
+    title: "Energy & Infrastructure",
+    body: "Executive advisory for major capital projects requiring disciplined governance, risk management, stakeholder alignment, and execution oversight.",
+  },
+  {
+    number: "02",
+    title: "Oil, Gas & Chemicals",
+    body: "Project leadership support for complex oil, gas, chemicals, and processing environments where safety, quality, contracts, and schedule performance are critical.",
+  },
+  {
+    number: "03",
+    title: "Pipelines & Facilities",
+    body: "Advisory support for pipeline systems, facilities, terminals, commissioning, startup, and related project execution challenges.",
+  },
+  {
+    number: "04",
+    title: "Offshore, Subsea & FPSO",
+    body: "Project leadership experience across offshore, subsea, FSO/FPSO, hook-up, commissioning, and international execution environments.",
+  },
+  {
+    number: "05",
+    title: "Energy Transition & Decarbonization",
+    body: "Strategic project advisory for organizations navigating new energy, sustainability, decarbonization, and transition-related capital projects.",
+  },
+];
+---
+
+<BaseLayout
+  title="Industries | The PLA Group"
+  description="The PLA Group brings project leadership experience across a range of capital-intensive project environments, with depth in energy, EPC execution, pipelines, offshore, subsea, gas, FPSO, commissioning, and infrastructure delivery."
+>
+  <Hero
+    eyebrow="Industries"
+    headline="Experience Across Complex Energy & Infrastructure Projects"
+    subhead="The PLA Group brings project leadership experience across a range of capital-intensive project environments, with particular depth in energy, EPC execution, pipelines, offshore, subsea, gas, FPSO, commissioning, and infrastructure delivery."
+    compact
+  />
+
+  <!-- Project Types --------------------------------------------------- -->
+  <section class="section" id="project-types">
+    <div class="container">
+      <p class="caption section__eyebrow">Where we work</p>
+      <h2 class="section__title">Project environments.</h2>
+
+      <ul class="cards">
+        {
+          projectTypes.map((p) => (
+            <li class="card">
+              <p class="caption card__num">{p.number}</p>
+              <h3 class="card__title">{p.title}</h3>
+              <p class="card__body">{p.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <hr class="hairline container-hairline" />
+
+  <!-- CTA -------------------------------------------------------------- -->
+  <section class="section">
+    <div class="container">
+      <p class="caption section__eyebrow">Next</p>
+      <h2 class="section__title">Talk through the project environment.</h2>
+      <p class="cta-copy">
+        Every project carries a distinct set of contractual, technical, and
+        stakeholder pressures. We can help you frame the ones that matter.
+      </p>
+      <Button href="/contact" variant="gold">Start the Conversation</Button>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .section__eyebrow {
+    color: var(--pla-gold);
+    margin-bottom: 20px;
+  }
+
+  .section__title {
+    font-size: var(--fs-heading);
+    line-height: var(--lh-heading);
+    letter-spacing: -0.03em;
+    max-width: 26ch;
+    margin-bottom: 56px;
+  }
+
+  .container-hairline {
+    width: min(100% - 48px, var(--container-max));
+    margin-inline: auto;
+  }
+
+  .cards {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 32px 0 0 0;
+    border-top: 1px solid var(--pla-iron);
+  }
+
+  .card__num {
+    color: var(--pla-gold);
+  }
+
+  .card__title {
+    font-size: var(--fs-subheading);
+    line-height: var(--lh-subheading);
+    letter-spacing: -0.03em;
+    max-width: 20ch;
+  }
+
+  .card__body {
+    color: var(--pla-vellum);
+  }
+
+  .cta-copy {
+    max-width: 62ch;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 1000px) {
+    .cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 700px) {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
