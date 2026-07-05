@@ -1,0 +1,60 @@
+---
+// Transparent nav that sits over the hero image.
+---
+
+<nav class="nav">
+  <div class="nav__inner container">
+    <a href="/" class="nav__wordmark" aria-label="The PLA Group — home">
+      the PLA group
+    </a>
+    <button class="nav__menu" type="button" aria-label="Open menu">
+      MENU <span class="nav__dot" aria-hidden="true">●</span>
+    </button>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: absolute;
+    inset: 0 0 auto 0;
+    z-index: 10;
+    padding-block: 28px;
+    background: transparent;
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav__wordmark {
+    font-family: var(--font-primary);
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    color: var(--pla-vellum);
+    text-decoration: none;
+  }
+
+  .nav__menu {
+    background: transparent;
+    border: 0;
+    padding: 8px 0;
+    color: var(--pla-vellum);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav__dot {
+    color: var(--pla-gold);
+    font-size: 10px;
+    line-height: 1;
+  }
+</style>

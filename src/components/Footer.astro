@@ -1,0 +1,105 @@
+---
+const year = 2026;
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <p class="footer__wordmark">the PLA group</p>
+      <p class="footer__legal">
+        © {year} The Project Leadership Advisory Group.
+      </p>
+    </div>
+
+    <div class="footer__col">
+      <p class="caption footer__label">Practice</p>
+      <ul>
+        <li><a href="#services">Advisory</a></li>
+        <li><a href="#services">Execution Oversight</a></li>
+        <li><a href="#services">Delivery Assurance</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <p class="caption footer__label">Company</p>
+      <ul>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <a href="mailto:hello@usetheplagroup.com">hello@usetheplagroup.com</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    background: var(--pla-navy);
+    color: var(--pla-vellum);
+    border-top: 1px solid var(--pla-iron);
+    padding-block: 56px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+  }
+
+  .footer__inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .footer__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer__wordmark {
+    font-family: var(--font-primary);
+    font-size: 20px;
+    letter-spacing: -0.03em;
+    color: var(--pla-vellum);
+  }
+
+  .footer__legal {
+    color: var(--pla-ash);
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+
+  .footer__label {
+    margin-bottom: 12px;
+  }
+
+  .footer__col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer__col a {
+    color: var(--pla-vellum);
+    text-decoration: none;
+    transition: color 120ms ease;
+  }
+
+  .footer__col a:hover {
+    color: var(--pla-gold);
+  }
+
+  @media (max-width: 900px) {
+    .footer__inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+</style>

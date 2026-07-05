@@ -1,0 +1,187 @@
+/* ---------------------------------------------------------------------------
+   The PLA Group — Global Styles
+   Palette derived from the INVERSA Refero style; typography and spacing kept
+   1:1 with the source system, only the color palette is swapped.
+   --------------------------------------------------------------------------- */
+
+@import "@fontsource/jetbrains-mono/300.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/700.css";
+
+:root {
+  /* Palette */
+  --pla-navy: #1c2b4a;
+  --pla-gold: #b8935a;
+  --pla-gold-deep: #8a6d3f;
+  --pla-vellum: #f4f3e8;
+  --pla-iron: #404040;
+  --pla-ash: #84837b;
+
+  /* Typography stacks
+     TODO: license NB International Pro and self-host; then prepend it here. */
+  --font-primary: "NB International Pro", "Söhne", "Inter",
+    system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo,
+    Monaco, Consolas, monospace;
+
+  /* Type scale */
+  --fs-display: 72px;
+  --lh-display: 0.90;
+  --fs-heading: 58px;
+  --lh-heading: 1.06;
+  --fs-subheading: 29px;
+  --lh-subheading: 1.28;
+  --fs-body: 18px;
+  --lh-body: 1.62;
+  --fs-caption: 13px;
+  --lh-caption: 1.2;
+
+  /* Layout */
+  --container-max: 1200px;
+  --section-gap-min: 86px;
+  --section-gap-max: 104px;
+  --radius: 3.6px;
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--pla-navy);
+  color: var(--pla-vellum);
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  letter-spacing: -0.03em;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: var(--pla-vellum);
+}
+
+h1 {
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+}
+
+h2 {
+  font-size: var(--fs-heading);
+  line-height: var(--lh-heading);
+}
+
+h3 {
+  font-size: var(--fs-subheading);
+  line-height: var(--lh-subheading);
+}
+
+p {
+  margin: 0;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- Utility: content container -------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+/* --- Utility: mono caption ------------------------------------------------- */
+
+.caption {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--pla-ash);
+}
+
+/* --- Utility: sections ----------------------------------------------------- */
+
+.section {
+  padding-block: clamp(var(--section-gap-min), 8vw, var(--section-gap-max));
+}
+
+.section--tight {
+  padding-block: clamp(48px, 6vw, 72px);
+}
+
+/* --- Utility: hairline ----------------------------------------------------- */
+
+.hairline {
+  border: 0;
+  border-top: 1px solid var(--pla-iron);
+  margin: 0;
+}
+
+/* --- Utility: full-bleed --------------------------------------------------- */
+
+.bleed {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
+
+/* --- Muted text ------------------------------------------------------------ */
+
+.muted {
+  color: var(--pla-ash);
+}
+
+/* --- Grid utilities -------------------------------------------------------- */
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px;
+}
+
+@media (max-width: 900px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  :root {
+    --fs-display: 44px;
+    --fs-heading: 36px;
+    --fs-subheading: 24px;
+  }
+}

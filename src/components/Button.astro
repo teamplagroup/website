@@ -1,0 +1,60 @@
+---
+interface Props {
+  href: string;
+  variant?: "gold" | "ghost";
+  external?: boolean;
+}
+
+const { href, variant = "gold", external = false } = Astro.props;
+const rel = external ? "noopener noreferrer" : undefined;
+const target = external ? "_blank" : undefined;
+---
+
+<a
+  class:list={["btn", `btn--${variant}`]}
+  href={href}
+  target={target}
+  rel={rel}
+>
+  <slot />
+</a>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 18px;
+    border-radius: 3.6px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background-color 120ms ease, color 120ms ease,
+      border-color 120ms ease;
+  }
+
+  .btn--gold {
+    background: var(--pla-gold);
+    color: var(--pla-navy);
+  }
+
+  .btn--gold:hover {
+    background: var(--pla-gold-deep);
+    color: var(--pla-vellum);
+  }
+
+  .btn--ghost {
+    background: transparent;
+    color: var(--pla-vellum);
+    border-color: var(--pla-iron);
+  }
+
+  .btn--ghost:hover {
+    border-color: var(--pla-vellum);
+  }
+</style>

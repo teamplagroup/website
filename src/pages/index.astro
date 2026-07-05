@@ -1,0 +1,171 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Footer from "../components/Footer.astro";
+import Button from "../components/Button.astro";
+
+// TODO: source a licensed aerial/satellite photograph and self-host it.
+const bandImage =
+  "https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?auto=format&fit=crop&w=2400&q=80";
+
+const services = [
+  {
+    caption: "01 — Advisory",
+    title: "Board-level counsel.",
+    body: "Independent advisory to owners, executives, and boards on capital program strategy, delivery model selection, and organizational readiness.",
+  },
+  {
+    caption: "02 — Execution Oversight",
+    title: "Project office in place.",
+    body: "Embedded oversight of the delivery team — governance, controls, reporting, and issue resolution — through the lifetime of the program.",
+  },
+  {
+    caption: "03 — Delivery Assurance",
+    title: "Independent verification.",
+    body: "Structured assurance reviews at the gates that matter: readiness, cost, schedule, risk, and closeout — with clear, actionable findings.",
+  },
+];
+---
+
+<BaseLayout title="The PLA Group — Project leadership, engineered.">
+  <Hero
+    eyebrow="THE PROJECT LEADERSHIP ADVISORY GROUP"
+    headline="Project leadership, engineered."
+    subhead="Advisory, execution oversight, and delivery assurance for complex capital programs."
+    ctaLabel="Request a conversation"
+    ctaHref="mailto:hello@usetheplagroup.com"
+  />
+
+  <!-- Services --------------------------------------------------------- -->
+  <section class="section" id="services">
+    <div class="container">
+      <p class="caption section__eyebrow">What we do</p>
+      <h2 class="section__title">Three practices. One discipline.</h2>
+
+      <div class="grid-3 services">
+        {
+          services.map((s) => (
+            <article class="service">
+              <p class="caption service__caption">{s.caption}</p>
+              <h3 class="service__title">{s.title}</h3>
+              <p class="service__body">{s.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <hr class="hairline container-hairline" />
+
+  <!-- Approach --------------------------------------------------------- -->
+  <section class="section" id="approach">
+    <div class="container approach">
+      <p class="caption section__eyebrow">Approach</p>
+      <h2 class="section__title">Rigor without theater.</h2>
+      <div class="approach__body">
+        <p>
+          Complex capital programs fail for predictable reasons — unclear
+          accountability, unrealistic baselines, and governance that arrives
+          late. We work at the intersection of the owner, the delivery team,
+          and the assurance function, so that the questions that decide the
+          outcome are answered in time to matter.
+        </p>
+        <p>
+          Our engagements are small, senior, and time-bounded. We take on the
+          problem, not the retainer. The work product is decisions made and
+          risks retired, not slides produced.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-bleed band -------------------------------------------------- -->
+  <section class="band" aria-hidden="true" style={`background-image: url(${bandImage});`}></section>
+
+  <!-- Contact ---------------------------------------------------------- -->
+  <section class="section" id="contact">
+    <div class="container contact">
+      <p class="caption section__eyebrow">Contact</p>
+      <h2 class="section__title">Start with a conversation.</h2>
+      <p class="contact__body">
+        Tell us about the program. We'll respond within one business day.
+      </p>
+      <div class="contact__cta">
+        <Button href="mailto:hello@usetheplagroup.com" variant="gold">
+          hello@usetheplagroup.com
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .section__eyebrow {
+    color: var(--pla-gold);
+    margin-bottom: 20px;
+  }
+
+  .section__title {
+    font-size: var(--fs-heading);
+    line-height: var(--lh-heading);
+    letter-spacing: -0.03em;
+    max-width: 24ch;
+    margin-bottom: 56px;
+  }
+
+  .services {
+    align-items: start;
+  }
+
+  .service {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .service__caption {
+    color: var(--pla-ash);
+  }
+
+  .service__title {
+    font-size: var(--fs-subheading);
+    line-height: var(--lh-subheading);
+    letter-spacing: -0.03em;
+  }
+
+  .service__body {
+    color: var(--pla-vellum);
+  }
+
+  .container-hairline {
+    width: min(100% - 48px, var(--container-max));
+    margin-inline: auto;
+  }
+
+  .approach__body {
+    max-width: 62ch;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .band {
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    height: min(56vh, 520px);
+    background-color: var(--pla-navy);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .contact__body {
+    max-width: 48ch;
+    margin-bottom: 32px;
+  }
+</style>
