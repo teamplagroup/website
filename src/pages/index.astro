@@ -12,27 +12,27 @@ const services = [
   {
     caption: "01",
     title: "Executive Project Advisory",
-    body: "Senior-level guidance for complex project decisions, governance challenges, stakeholder alignment, and delivery risk.",
+    body: "Senior guidance on high-stakes decisions, governance, and stakeholder alignment.",
   },
   {
     caption: "02",
     title: "EPC Strategy & Execution",
-    body: "Practical support for execution planning, contracting strategy, procurement, interface management, and project controls alignment.",
+    body: "Execution planning, contracting strategy, procurement, and controls alignment.",
   },
   {
     caption: "03",
     title: "Project Recovery",
-    body: "Experienced leadership support for projects facing cost, schedule, contractual, commercial, or execution challenges.",
+    body: "Leadership for projects facing cost, schedule, or execution pressure.",
   },
   {
     caption: "04",
     title: "Contract & Change Management",
-    body: "Commercial and contractual advisory support for claims, change management, owner–contractor alignment, and executive issue framing.",
+    body: "Claims, change orders, and commercial issue framing.",
   },
   {
     caption: "05",
-    title: "Commissioning & Startup Readiness",
-    body: "Support for construction completion, commissioning, startup, handover, closeout, and early operations readiness.",
+    title: "Commissioning & Startup",
+    body: "Mechanical completion through handover and early operations.",
   },
 ];
 
@@ -46,19 +46,19 @@ const experienceBar = [
 const pillars = [
   {
     title: "Executive Judgment",
-    body: "Senior-level perspective on high-stakes project decisions, governance challenges, and stakeholder alignment.",
+    body: "Senior perspective on high-stakes decisions and stakeholder alignment.",
   },
   {
     title: "Delivery Discipline",
-    body: "Focus on the fundamentals that determine project success: scope, schedule, cost, risk, quality, safety, and accountability.",
+    body: "Scope, schedule, cost, risk, quality, safety, accountability.",
   },
   {
     title: "Commercial Awareness",
-    body: "Understanding of the contractual, financial, and commercial realities that shape project outcomes.",
+    body: "Contractual, financial, and commercial realities that shape outcomes.",
   },
   {
     title: "Global EPC Experience",
-    body: "Depth across international project environments, multidisciplinary teams, and complex stakeholder structures.",
+    body: "International project environments and complex stakeholder structures.",
   },
 ];
 ---
@@ -103,13 +103,11 @@ const pillars = [
       <div class="stakes__body">
         <p>
           Major capital projects carry major consequences. Cost, schedule,
-          safety, quality, contracts, stakeholders, and execution decisions
-          all have to move together.
+          contracts, stakeholders — all have to move together.
         </p>
         <p>
-          The PLA Group helps leadership teams strengthen project execution,
-          improve governance, manage risk, and make better decisions at
-          critical moments.
+          We help leadership teams sharpen execution, governance, and risk at
+          the moments that matter.
         </p>
       </div>
     </div>
@@ -156,13 +154,9 @@ const pillars = [
       <h2 class="section__title">Experience That Goes Beyond Advice</h2>
       <div class="why__lede">
         <p>
-          The PLA Group brings decades of real-world project leadership
-          experience across complex EPC environments. We understand the
-          realities of delivering major projects because we have led them.
-        </p>
-        <p>
-          Our work helps clients bring clarity, discipline, and experienced
-          judgment to the projects that matter most.
+          Decades of hands-on project leadership across complex EPC
+          environments. We understand delivering major projects because we
+          have led them.
         </p>
       </div>
 
@@ -191,21 +185,14 @@ const pillars = [
 
       <div class="founder__body">
         <p>
-          Luis Hernandez is a senior EPC and project leadership executive with
-          more than 35 years of global experience delivering large, complex
-          energy and infrastructure programs across the Americas, Europe, the
-          Middle East, and Asia.
+          Luis Hernandez is a senior EPC executive with 35+ years leading
+          major energy and infrastructure programs across the Americas,
+          Europe, the Middle East, and Asia.
         </p>
         <p>
-          His experience spans full lifecycle EPC execution, contract
-          administration, change management, commercial strategy, risk
-          mitigation, safety leadership, executive reporting, commissioning,
-          startup, and project closeout.
-        </p>
-        <p>
-          Through The PLA Group, Luis helps clients strengthen execution,
-          improve governance, and bring experienced leadership to high-stakes
-          capital projects.
+          His work spans the full EPC lifecycle — contract administration,
+          change management, commercial strategy, safety leadership,
+          commissioning, startup, and closeout.
         </p>
         <div class="founder__cta">
           <Button href="/about" variant="ghost">
@@ -366,13 +353,20 @@ const pillars = [
   .band {
     width: 100vw;
     margin-inline: calc(50% - 50vw);
-    height: min(56vh, 520px);
+    height: min(44vh, 420px);
     background-color: var(--pla-navy);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border: 0;
     border-radius: 0;
+  }
+
+  /* Tighter top padding on sections that follow a full-bleed band — the
+     band already provides visual separation, so the section shouldn't
+     stack its own full padding on top of it. */
+  .band + .section {
+    padding-top: clamp(56px, 4vw, 88px);
   }
 
   /* --- Why ------------------------------------------------------------ */
