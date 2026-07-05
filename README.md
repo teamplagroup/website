@@ -4,7 +4,7 @@ Marketing site for **The Project Leadership Advisory Group**
 (`usetheplagroup.com`).
 
 - Framework: [Astro](https://astro.build) (static output)
-- Hosting: GitHub Pages
+- Hosting: **Cloudflare Pages** (project `theplagroup`)
 - Design system: adapted from Refero's INVERSA style — INVERSA typography and
   spacing are kept 1:1; only the color palette is swapped to match the PLA
   logo (navy + gold).
@@ -31,32 +31,26 @@ Output goes to `dist/`. `npm run preview` serves that folder locally.
 
 ---
 
-## Deployment (GitHub Pages)
+## Deployment (Cloudflare Pages)
 
-Deployment is automated by `.github/workflows/deploy.yml` using the official
-`withastro/action`. Every push to `main` builds the site and publishes it to
-GitHub Pages.
+The Pages project `theplagroup` is a **Direct Upload** project. Deploys are
+pushed from the maintainer's machine with Wrangler:
 
-**One-time setup after the first push:**
+```bash
+CLOUDFLARE_ACCOUNT_ID=<acct> \
+CLOUDFLARE_API_TOKEN=<token> \
+npx wrangler pages deploy dist --project-name=theplagroup --branch=main
+```
 
-1. Repo → **Settings → Pages → Build and deployment → Source**:
-   `GitHub Actions` (required — do not select "Deploy from a branch").
-2. First push to `main` (or manually trigger the workflow) will run the
-   `Deploy to GitHub Pages` action.
+To flip to git-integrated deploys (build on push), reconnect the Pages
+project to the GitHub repo in the Cloudflare dashboard — the CF GitHub App
+must first be authorized on the `teamplagroup` org.
 
 ### Custom domain / DNS
 
-`public/CNAME` contains `usetheplagroup.com`, which GitHub Pages picks up
-automatically.
-
-At Cloudflare (DNS for `usetheplagroup.com`):
-
-- **CNAME** `@` (or `usetheplagroup.com`) → `teamplagroup.github.io`
-- Proxy status: **DNS only** (grey cloud). Cloudflare's orange-cloud proxy
-  breaks GitHub Pages' automatic HTTPS provisioning; leave it off, at least
-  until Pages has issued a Let's Encrypt cert and the "Enforce HTTPS"
-  checkbox in Settings → Pages is ticked.
-- Cert provisioning typically takes ~24h after the CNAME propagates.
+Attached in the Cloudflare Pages dashboard (`theplagroup` project → Custom
+domains) — CF auto-creates the DNS records on the `usetheplagroup.com` zone.
+No manual CNAME needed.
 
 ---
 
@@ -73,14 +67,9 @@ At Cloudflare (DNS for `usetheplagroup.com`):
 
 ## Fonts
 
-**Söhne** (Klim Type Foundry, licensed) is the primary face. Drop the
-licensed woff2 files into `public/fonts/`:
-
-- `public/fonts/soehne-buch.woff2` (weight 400)
-- `public/fonts/soehne-kraftig.woff2` (weight 600)
-
-Falls back to **Inter / system-ui** until those files are present. See
-`public/fonts/README.md` for details.
+**General Sans** (Fontshare, Indian Type Foundry — free commercial license)
+is the primary face, loaded via the Fontshare CDN in
+`src/layouts/BaseLayout.astro`. Fallback: Inter / system-ui.
 
 Mono UI uses **JetBrains Mono**, self-hosted via `@fontsource/jetbrains-mono`.
 
@@ -97,8 +86,6 @@ form in either case.
 
 ## TODOs
 
-- [ ] License **Söhne** from Klim Type Foundry and drop the woff2 files into
-      `public/fonts/`.
 - [ ] Replace placeholder Unsplash imagery in `src/components/Hero.astro`,
       `src/pages/index.astro`, and `src/pages/about.astro` with licensed,
       self-hosted photography under `public/images/`.

@@ -8,25 +8,6 @@
 @import "@fontsource/jetbrains-mono/400.css";
 @import "@fontsource/jetbrains-mono/700.css";
 
-/* Söhne (Klim Type Foundry, licensed).
-   Files are NOT committed to this repo. Drop woff2 files into public/fonts/
-   to activate — until then the stack falls back to Inter / system-ui. */
-@font-face {
-  font-family: "Söhne";
-  src: url("/fonts/soehne-buch.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Söhne";
-  src: url("/fonts/soehne-kraftig.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   /* Palette */
   --pla-navy: #1c2b4a;
@@ -37,8 +18,8 @@
   --pla-ash: #84837b;
 
   /* Typography stacks */
-  --font-primary: "Söhne", "Söhne Buch", "Sohne", Inter, system-ui,
-    -apple-system, "Segoe UI", sans-serif;
+  --font-primary: "General Sans", Inter, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
     Consolas, monospace;
 
