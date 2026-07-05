@@ -22,17 +22,16 @@ const {
   primaryCtaHref,
   secondaryCtaLabel,
   secondaryCtaHref,
-  // TODO: license & self-host a photograph of a major capital-project site or
-  // executive setting; this Unsplash frame is a placeholder skyscraper
-  // up-angle that reads as premium, executive, and non-industrial.
-  image = "https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=2400&q=80",
+  image = null,
   compact = false,
 } = Astro.props;
 ---
 
 <header
   class:list={["hero", compact && "hero--compact"]}
-  style={`background-image: linear-gradient(180deg, rgba(28,43,74,0.55) 0%, rgba(28,43,74,0.90) 100%), url(${image});`}
+  style={image
+    ? `background-image: linear-gradient(180deg, rgba(28,43,74,0.55) 0%, rgba(28,43,74,0.90) 100%), url(${image});`
+    : ""}
 >
   <Nav variant="over-hero" />
 
@@ -75,6 +74,7 @@ const {
     align-items: flex-end;
     border: 0;
     border-radius: 0;
+    border-bottom: 1px solid var(--pla-iron);
   }
 
   .hero--compact {

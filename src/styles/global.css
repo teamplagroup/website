@@ -37,9 +37,10 @@
 
   /* Layout */
   --container-max: 1200px;
-  --section-gap-min: 86px;
-  --section-gap-max: 104px;
+  --section-gap-min: 128px;
+  --section-gap-max: 176px;
   --radius: 3.6px;
+  --paragraph-gap: 32px;
 
   color-scheme: dark;
 }

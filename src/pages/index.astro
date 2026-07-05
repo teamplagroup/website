@@ -302,10 +302,12 @@ const pillars = [
   /* --- Stakes --------------------------------------------------------- */
 
   .stakes__body {
-    max-width: 62ch;
+    max-width: 58ch;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: var(--paragraph-gap);
+    font-size: 22px;
+    line-height: 1.55;
   }
 
   /* --- Cards ---------------------------------------------------------- */
@@ -376,11 +378,13 @@ const pillars = [
   /* --- Why ------------------------------------------------------------ */
 
   .why__lede {
-    max-width: 62ch;
+    max-width: 58ch;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    margin-bottom: 64px;
+    gap: var(--paragraph-gap);
+    margin-bottom: 96px;
+    font-size: 22px;
+    line-height: 1.55;
   }
 
   .pillars {
@@ -435,7 +439,7 @@ const pillars = [
     max-width: 62ch;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: var(--paragraph-gap);
   }
 
   .founder__cta {
